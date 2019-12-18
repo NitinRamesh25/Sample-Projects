@@ -1,14 +1,9 @@
 #include "MyItem.h"
+#include <QThread>
 
 MyItem::MyItem(QQuickItem* parent)
     : QQuickFramebufferObject(parent)
-    , m_renderer(createRenderer())
 {}
-
-QQuickFramebufferObject::Renderer *MyItem::renderer() const
-{
-    return m_renderer;
-}
 
 QQuickFramebufferObject::Renderer *MyItem::createRenderer() const
 {
@@ -20,81 +15,82 @@ MyItemRenderer::MyItemRenderer()
 {
     initializeOpenGLFunctions();
 
-     glClearColor(0.1f, 0.1f, 0.2f, 0.0f); // transparent
+    // just the default shaders:
+    const char *vertexShaderSrc =
+        "#version 330 core\n"
+        "layout (location = 0) in vec3 aPos;\n"
+        "void main()\n"
+        "{\n"
+        "gl_Position = vec4(aPos, 1.0f);\n"
+        "}\0";
 
-     // just the default shaders:
-     const char *vertexShaderSrc =
-         "attribute highp vec4 posAttr;\n"
-         "attribute lowp vec4 colAttr;\n"
-         "varying lowp vec4 col;\n"
-         "uniform highp mat4 matrix;\n"
-         "void main() {\n"
-         "   col = colAttr;\n"
-         "   gl_Position = matrix * posAttr;\n"
-         "}\n";
+    const char *fragmentShaderSrc =
+        "#version 330 core\n"
+        "out vec4 fragColor;\n"
+        "uniform vec4 myColor;\n"
+        "void main()\n"
+        "{\n"
+        "fragColor = myColor;\n"
+        "}\0";
 
-     const char *fragmentShaderSrc =
-         "varying lowp vec4 col;\n"
-         "void main() {\n"
-         "   gl_FragColor = col;\n"
-         "}\n";
+    auto vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertexShader, 1, &vertexShaderSrc, NULL);
+    glCompileShader(vertexShader);
 
-     shader_->addShaderFromSourceCode(QOpenGLShader::Vertex, vertexShaderSrc);
-     shader_->addShaderFromSourceCode(QOpenGLShader::Fragment, fragmentShaderSrc);
-     shader_->link();
-     positionAttr_ = shader_->attributeLocation("posAttr");
-     colorAttr_ = shader_->attributeLocation("colAttr");
-     matrixAttr_ = shader_->uniformLocation("matrix");
+    auto fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader, 1, &fragmentShaderSrc, NULL);
+    glCompileShader(fragmentShader);
+
+    m_shaderProgram = glCreateProgram();
+    glAttachShader(m_shaderProgram, vertexShader);
+    glAttachShader(m_shaderProgram, fragmentShader);
+    glLinkProgram(m_shaderProgram);
+
+    m_colorLocation = glGetUniformLocation(m_shaderProgram, "myColor");
+
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+
+    float vertices[] = {
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f, 0.5f, 0.0f
+    };
+
+    GLuint vbo;
+    glGenVertexArrays(1, &m_vao);
+    glGenBuffers(1, &vbo);
+
+    glBindVertexArray(m_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
 }
 
 void MyItemRenderer::synchronize(QQuickFramebufferObject *item)
 {
-    window_ = item->window();
-
     auto* myItem = static_cast<MyItem*>(item);
-    Q_UNUSED(myItem)
-
-    // fetch required properties from myItem and store as member variables in renderer.
+    m_window = myItem->window();
+    m_size = myItem->size();
 }
 
 void MyItemRenderer::render()
 {
-    // use OpenGl 2.0
+    glViewport(0, 0, 2 * m_size.width(), 2 * m_size.height());
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    shader_->bind();
+    glUseProgram(m_shaderProgram);
+    glBindVertexArray(m_vao);
 
-    QMatrix4x4 matrix;
-    matrix.perspective(90.0f, 1.0f, 0.1f, 100.0f);
-    matrix.translate(0, 0, -1);
-
-    shader_->setUniformValue(matrixAttr_, matrix);
-
-    float relSize = 0.8f;
-    GLfloat vertices[] = {
-        -relSize, -relSize, 0.0f,
-        relSize, -relSize, 0.0f,
-        0.0f, relSize, 0.0f
-    };
-
-    GLfloat colors[] = {
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f
-    };
-
-    glVertexAttribPointer(positionAttr_, 3, GL_FLOAT, GL_FALSE, 0, vertices);
-    glVertexAttribPointer(colorAttr_, 3, GL_FLOAT, GL_FALSE, 0, colors);
-
-    glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
+    glUniform4f(m_colorLocation, 1.0f, 0.0f, 0.0f, 1.0f);
 
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(0);
+    m_window->resetOpenGLState();
 
-    shader_->release();
 }
 
 QOpenGLFramebufferObject* MyItemRenderer::createFramebufferObject(const QSize &size)

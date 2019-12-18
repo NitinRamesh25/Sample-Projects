@@ -1,15 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "MyItem.h"
-
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
-
-    qmlRegisterType<MyItem>("MyItem", 1, 0, "MyItem");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

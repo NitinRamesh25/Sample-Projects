@@ -1,11 +1,10 @@
-#ifndef MYITEM_H
-#define MYITEM_H
+#pragma once
 
 #include <QQuickFramebufferObject>
 #include <QQuickWindow>
 
 #include <QOpenGLFramebufferObject>
-#include <QOpenGLFunctions>
+#include <QOpenGLFunctions_3_0>
 #include <QOpenGLShaderProgram>
 
 
@@ -15,19 +14,15 @@ class MyItem : public QQuickFramebufferObject
 public:
     MyItem(QQuickItem* parent = nullptr);
 
-    Renderer* renderer() const;
-
 protected:
     Renderer * createRenderer() const override;
 
-private:
-    Renderer* m_renderer;
 };
 
 
 class MyItemRenderer
     : public QQuickFramebufferObject::Renderer
-    , protected QOpenGLFunctions
+    , protected QOpenGLFunctions_3_0
 {
 
 public:
@@ -40,13 +35,12 @@ public:
     QOpenGLFramebufferObject * createFramebufferObject(const QSize &size) override;
 
 private:
-    QQuickWindow* window_;
+    QQuickWindow* m_window;
+    QSizeF m_size;
 
-    QScopedPointer<QOpenGLShaderProgram> shader_;
+    GLuint m_shaderProgram;
+    GLint m_colorLocation;
 
-    uint positionAttr_;
-    uint colorAttr_;
-    int matrixAttr_;
+    GLuint m_vao;
 };
 
-#endif // MYITEM_H
