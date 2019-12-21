@@ -11,5 +11,6 @@ MyItemGeometry::MyItemGeometry()
     auto material = MyItemShader::createMaterial();
     material->setFlag(QSGMaterial::Blending);
     setMaterial(material);
-    setFlag(OwnsMaterial);
+
+    setFlags(OwnsMaterial | OwnsGeometry);
 }

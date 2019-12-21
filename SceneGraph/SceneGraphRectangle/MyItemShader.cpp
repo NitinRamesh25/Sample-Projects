@@ -1,30 +1,36 @@
 #include "MyItemShader.h"
 
+#include <QOpenGLShader>
+#include <QOpenGLShaderProgram>
+#include <QDebug>
+
+
 MyItemShader::MyItemShader()
 {}
 
 const char *MyItemShader::vertexShader() const
 {
     return
-        "attribute highp vec4 aVertex;                              \n"
-        "attribute highp vec2 aTexCoord;                            \n"
-        "uniform highp mat4 qt_Matrix;                              \n"
-        "varying highp vec2 texCoord;                               \n"
-        "void main() {                                              \n"
-        "    gl_Position = qt_Matrix * aVertex;                     \n"
-        "    texCoord = aTexCoord;                                  \n"
+        "attribute vec4 aVertex;"
+        "attribute vec2 aTexCoord;"
+        "uniform mat4 qt_Matrix;"
+        "varying vec2 texCoord;"
+        "void main()"
+        "{"
+        "    gl_Position = qt_Matrix * aVertex;"
+        "    texCoord = aTexCoord;"
         "}";
 }
 
 const char *MyItemShader::fragmentShader() const
 {
     return
-        "uniform lowp float qt_Opacity;                             \n"
-        "uniform lowp vec4 color;                                   \n"
-        "varying highp vec2 texCoord;                               \n"
-        "void main ()                                               \n"
-        "{                                                          \n"
-        "    gl_FragColor = texCoord.y * texCoord.x * color * qt_Opacity;  \n"
+        "uniform float qt_Opacity;"
+        "uniform vec4 color;"
+        "varying vec2 texCoord;"
+        "void main ()"
+        "{"
+        "    gl_FragColor = texCoord.y * texCoord.x * color * qt_Opacity;"
         "}";
 }
 
@@ -38,9 +44,8 @@ void MyItemShader::resolveUniforms()
     m_colorLocation = program()->uniformLocation("color");
 }
 
-void MyItemShader::updateState(const State *newState, const State */*oldState*/)
+void MyItemShader::updateState(const State *newState, const State *oldState)
 {
     program()->setUniformValue(m_colorLocation, newState->color);
+    Q_UNUSED(oldState)
 }
-
-

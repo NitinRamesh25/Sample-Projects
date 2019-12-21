@@ -7,6 +7,7 @@ struct State
 {
     QColor color;
 
+
     int compare(const State *other) const
     {
         uint rgb = color.rgba();
@@ -27,7 +28,8 @@ struct State
     }
 };
 
-class MyItemShader : public QSGSimpleMaterialShader<State>
+class MyItemShader
+    : public QSGSimpleMaterialShader<State>
 {
     QSG_DECLARE_SIMPLE_COMPARABLE_SHADER(MyItemShader, State);
 
