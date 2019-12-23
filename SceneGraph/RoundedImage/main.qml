@@ -9,9 +9,14 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    CustomImage {
-        width: 200
-        height: 200
-        anchors.centerIn: parent
+    Rectangle
+    {
+        anchors.fill: parent
+        color: "white"
+        CustomImage {
+            width: 200
+            height: 200
+            anchors.centerIn: parent
+        }
     }
 }
