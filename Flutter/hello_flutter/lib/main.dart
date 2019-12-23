@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,14 +15,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
 
-  List questions = [
-    "What is your favourite color?",
-    "What is your favourite animal?",
+  final List questionsAnswers = [
+    {
+      "questionText": "What is your favourite color?",
+      "answers": ["Red", "Green", "Blue"],
+    },
+    {
+      "questionText": "What is your favourite animal?",
+      "answers": ["Cat", "Dog", "Horse"],
+    },
   ];
 
   void _answerQuestion() {
     setState(() {
-      _questionIndex = 1;
+      _questionIndex = ++_questionIndex % questionsAnswers.length;
     });
   }
 
@@ -36,26 +43,26 @@ class _MyAppState extends State<MyApp> {
       ),
       body: Column(
         children: [
-          Question(questions[_questionIndex]),
-          RaisedButton(
-            child: Text("Answer 1"),
-            onPressed: _answerQuestion,
-          ),
-          RaisedButton(
-            child: Text("Answer 2"),
-            onPressed: _answerQuestion,
-          ),
-          RaisedButton(
-            child: Text("Answer 3"),
-            onPressed: _answerQuestion,
-          ),
+          Question(questionsAnswers[_questionIndex]["questionText"]),
+
+          // ... is a spread operator, takes each individual element of a list
+          // map function used below lets us iterate over a list
+          ...(questionsAnswers[_questionIndex]["answers"] as List<String>)
+              .map((answerText) {
+            return Answer(
+              text: answerText,
+              textColor: Colors.white,
+              backColor: Colors.blue,
+              onPressedFunction: _answerQuestion,
+            );
+          }).toList(),
         ],
       ),
     );
 
     return MaterialApp(
       home: mainWidget,
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(primarySwatch: Colors.blue),
     );
   }
 }
