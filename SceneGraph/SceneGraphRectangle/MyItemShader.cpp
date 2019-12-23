@@ -30,7 +30,7 @@ const char *MyItemShader::fragmentShader() const
         "varying vec2 texCoord;"
         "void main ()"
         "{"
-        "    gl_FragColor = texCoord.y * texCoord.x * color * qt_Opacity;"
+        "    gl_FragColor = (1.0f-texCoord.y) * (1.0f-texCoord.x) * color * qt_Opacity;"
         "}";
 }
 
