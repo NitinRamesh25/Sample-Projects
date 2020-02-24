@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,21 +14,38 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
+  int _totalScore = 0;
 
-  final List questionsAnswers = [
+  final List _questionsAnswers = [
     {
       "questionText": "What is your favourite color?",
-      "answers": ["Red", "Green", "Blue"],
+      "answers": [
+        {"text": "Red", "score": "10"},
+        {"text": "Green", "score": "5"},
+        {"text": "Blue", "score": "2"},
+      ],
     },
     {
       "questionText": "What is your favourite animal?",
-      "answers": ["Cat", "Dog", "Horse"],
+      "answers": [
+        {"text": "Cat", "score": "10"},
+        {"text": "Dog", "score": "5"},
+        {"text": "Horse", "score": "2"},
+      ],
     },
   ];
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     setState(() {
-      _questionIndex = ++_questionIndex % questionsAnswers.length;
+      ++_questionIndex;
+      _totalScore += score;
+    });
+  }
+
+  void _restartQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
     });
   }
 
@@ -39,25 +56,18 @@ class _MyAppState extends State<MyApp> {
 
     Scaffold mainWidget = Scaffold(
       appBar: AppBar(
-        title: Text("My First App"),
+        title: Text("My First Flutter App"),
       ),
-      body: Column(
-        children: [
-          Question(questionsAnswers[_questionIndex]["questionText"]),
-
-          // ... is a spread operator, takes each individual element of a list
-          // map function used below lets us iterate over a list
-          ...(questionsAnswers[_questionIndex]["answers"] as List<String>)
-              .map((answerText) {
-            return Answer(
-              text: answerText,
-              textColor: Colors.white,
-              backColor: Colors.blue,
-              onPressedFunction: _answerQuestion,
-            );
-          }).toList(),
-        ],
-      ),
+      body: (_questionIndex < _questionsAnswers.length)
+          ? Quiz(
+              questionText: _questionsAnswers[_questionIndex]["questionText"],
+              answersAndScores: _questionsAnswers[_questionIndex]["answers"],
+              answerOnPressedFunction: _answerQuestion,
+            )
+          : Result(
+              resultScore: _totalScore,
+              restartQuiz: _restartQuiz,
+            ),
     );
 
     return MaterialApp(
