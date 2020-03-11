@@ -14,6 +14,7 @@ set(Source
 )
 
 add_library(${PROJECT_NAME} STATIC ${Source} ${Headers})
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_subdirectory(googletest)
 add_subdirectory(test)

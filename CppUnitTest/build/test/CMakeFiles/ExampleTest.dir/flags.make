@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /home/ml-machine/Documents/Sample-Projects/CppUnitTest/googletest/googletest/include -isystem /home/ml-machine/Documents/Sample-Projects/CppUnitTest/googletest/googletest 
+CXX_INCLUDES = -I/home/ml-machine/Documents/Sample-Projects/CppUnitTest/test -isystem /home/ml-machine/Documents/Sample-Projects/CppUnitTest/googletest/googletest/include -isystem /home/ml-machine/Documents/Sample-Projects/CppUnitTest/googletest/googletest -I/home/ml-machine/Documents/Sample-Projects/CppUnitTest 
 

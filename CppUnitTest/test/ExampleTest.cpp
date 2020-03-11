@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
+#include "Example.h"
 
-TEST(ExampleTest, FirstTest)
+TEST(ExampleTest, isInitialized)
 {
-    EXPECT_TRUE(true);
+    auto example = Example();
+    EXPECT_TRUE(example.isInitialized());
 }

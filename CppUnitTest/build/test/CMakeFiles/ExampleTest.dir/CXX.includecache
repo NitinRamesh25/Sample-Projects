@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+..//Example.h
+
 ../googletest/googletest/include/gtest/gtest-death-test.h
 gtest/internal/gtest-death-test-internal.h
 ../googletest/googletest/include/gtest/gtest/internal/gtest-death-test-internal.h
@@ -317,4 +319,6 @@ acxx_demangle.h
 /home/ml-machine/Documents/Sample-Projects/CppUnitTest/test/ExampleTest.cpp
 gtest/gtest.h
 -
+Example.h
+/home/ml-machine/Documents/Sample-Projects/CppUnitTest/test/Example.h
 

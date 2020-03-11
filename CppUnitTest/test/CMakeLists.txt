@@ -11,6 +11,7 @@ target_link_libraries(${This} PUBLIC
     gtest_main
     GTestSample
 )
+target_include_directories(${This} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Tells cmake that this is a unit-test program, and runs it
 add_test(
