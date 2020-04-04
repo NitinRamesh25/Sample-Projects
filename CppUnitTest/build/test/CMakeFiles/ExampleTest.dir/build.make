@@ -90,9 +90,9 @@ ExampleTest_EXTERNAL_OBJECTS =
 
 test/ExampleTest: test/CMakeFiles/ExampleTest.dir/ExampleTest.cpp.o
 test/ExampleTest: test/CMakeFiles/ExampleTest.dir/build.make
-test/ExampleTest: lib/libgtest_main.a
+test/ExampleTest: lib/libgtest_maind.a
 test/ExampleTest: libGTestSample.a
-test/ExampleTest: lib/libgtest.a
+test/ExampleTest: lib/libgtestd.a
 test/ExampleTest: test/CMakeFiles/ExampleTest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ml-machine/Documents/Sample-Projects/CppUnitTest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ExampleTest"
 	cd /home/ml-machine/Documents/Sample-Projects/CppUnitTest/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ExampleTest.dir/link.txt --verbose=$(VERBOSE)
