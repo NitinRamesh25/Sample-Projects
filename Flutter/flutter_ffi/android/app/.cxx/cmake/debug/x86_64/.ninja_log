@@ -1,0 +1,12 @@
+# ninja log v5
+1	142	0	CMakeFiles/my_library.dir/sample.cpp.o	352f3e9a847b93e4
+142	337	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/x86_64/libmy_library.so	27abbd5eeda3c012
+2	252	0	build.ninja	8f5ddd412cd2c3d9
+1	144	0	CMakeFiles/my_library.dir/sample.cpp.o	352f3e9a847b93e4
+144	439	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/x86_64/libmy_library.so	27abbd5eeda3c012
+0	155	0	src/CMakeFiles/my_library.dir/sample.cpp.o	78cdac1004484baa
+155	648	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/x86_64/libmy_library.so	62a75e8433ee2e
+1	143	0	src/CMakeFiles/my_library.dir/sample.cpp.o	78cdac1004484baa
+143	416	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/x86_64/libmy_library.so	62a75e8433ee2e
+1	145	0	src/CMakeFiles/my_library.dir/sample.cpp.o	78cdac1004484baa
+146	431	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/x86_64/libmy_library.so	62a75e8433ee2e

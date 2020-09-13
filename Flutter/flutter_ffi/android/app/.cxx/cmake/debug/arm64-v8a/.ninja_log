@@ -1,0 +1,12 @@
+# ninja log v5
+0	148	0	CMakeFiles/my_library.dir/sample.cpp.o	cbb99fb2d3f68177
+148	332	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/arm64-v8a/libmy_library.so	1364a72bbf0bff86
+2	263	0	build.ninja	a6fc88732cedf9fc
+1	148	0	CMakeFiles/my_library.dir/sample.cpp.o	cbb99fb2d3f68177
+148	379	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/arm64-v8a/libmy_library.so	1364a72bbf0bff86
+0	182	0	src/CMakeFiles/my_library.dir/sample.cpp.o	c76d6edfe00b00ff
+182	566	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/arm64-v8a/libmy_library.so	6b95efb0490500d9
+1	175	0	src/CMakeFiles/my_library.dir/sample.cpp.o	c76d6edfe00b00ff
+175	404	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/arm64-v8a/libmy_library.so	6b95efb0490500d9
+1	174	0	src/CMakeFiles/my_library.dir/sample.cpp.o	c76d6edfe00b00ff
+174	382	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/arm64-v8a/libmy_library.so	6b95efb0490500d9

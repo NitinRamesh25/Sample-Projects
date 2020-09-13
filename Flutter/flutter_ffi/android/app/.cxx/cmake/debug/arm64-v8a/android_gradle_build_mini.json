@@ -1,0 +1,17 @@
+{
+  "buildFiles": [
+    "C:\\Users\\nitin\\Documents\\Projects\\flutter_ffi\\my_library\\CMakeLists.txt",
+    "C:\\Users\\nitin\\Documents\\Projects\\flutter_ffi\\my_library\\src\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\nitin\\AppData\\Local\\Android\\sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\nitin\\Documents\\Projects\\flutter_ffi\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a --target clean"
+  ],
+  "libraries": {
+    "my_library-Debug-arm64-v8a": {
+      "artifactName": "my_library",
+      "buildCommand": "C:\\Users\\nitin\\AppData\\Local\\Android\\sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\nitin\\Documents\\Projects\\flutter_ffi\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a --target my_library",
+      "abi": "arm64-v8a",
+      "output": "C:\\Users\\nitin\\Documents\\Projects\\flutter_ffi\\build\\app\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libmy_library.so"
+    }
+  }
+}

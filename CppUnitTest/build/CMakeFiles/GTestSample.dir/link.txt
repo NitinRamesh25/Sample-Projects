@@ -1,2 +1,0 @@
-/usr/bin/ar qc libGTestSample.a  CMakeFiles/GTestSample.dir/Example.cpp.o
-/usr/bin/ranlib libGTestSample.a

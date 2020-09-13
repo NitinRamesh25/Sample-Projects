@@ -1,0 +1,42 @@
+
+{
+	"buildFiles" : 
+	[
+		"C:/Users/nitin/Documents/Projects/flutter_ffi/my_library/CMakeLists.txt",
+		"C:/Users/nitin/Documents/Projects/flutter_ffi/my_library/src/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"C:\\Users\\nitin\\AppData\\Local\\Android\\sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\nitin\\Documents\\Projects\\flutter_ffi\\android\\app\\.cxx\\cmake\\debug\\armeabi-v7a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"my_library-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "my_library",
+			"buildCommand" : "C:\\Users\\nitin\\AppData\\Local\\Android\\sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build C:\\Users\\nitin\\Documents\\Projects\\flutter_ffi\\android\\app\\.cxx\\cmake\\debug\\armeabi-v7a --target my_library",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi16 --gcc-toolchain=C:/Users/nitin/AppData/Local/Android/Sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/nitin/AppData/Local/Android/Sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dmy_library_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "C:/Users/nitin/Documents/Projects/flutter_ffi/my_library/src/sample.cpp",
+					"workingDirectory" : "C:/Users/nitin/Documents/Projects/flutter_ffi/android/app/.cxx/cmake/debug/armeabi-v7a"
+				}
+			],
+			"output" : "C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libmy_library.so",
+			"toolchain" : "3077874157"
+		}
+	},
+	"toolchains" : 
+	{
+		"3077874157" : 
+		{
+			"cCompilerExecutable" : "C:/Users/nitin/AppData/Local/Android/Sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "C:/Users/nitin/AppData/Local/Android/Sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

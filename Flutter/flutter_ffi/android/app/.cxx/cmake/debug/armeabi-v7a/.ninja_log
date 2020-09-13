@@ -1,0 +1,12 @@
+# ninja log v5
+1	166	0	CMakeFiles/my_library.dir/sample.cpp.o	791a6a6313d5e5d9
+167	425	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libmy_library.so	bd36a9a37461124f
+4	1247	0	build.ninja	9fdb99e7adb67f54
+1	408	0	CMakeFiles/my_library.dir/sample.cpp.o	791a6a6313d5e5d9
+409	711	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libmy_library.so	bd36a9a37461124f
+0	616	0	src/CMakeFiles/my_library.dir/sample.cpp.o	efa74b0212e798de
+617	1038	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libmy_library.so	b58c8973853b7a50
+0	454	0	src/CMakeFiles/my_library.dir/sample.cpp.o	efa74b0212e798de
+455	742	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libmy_library.so	b58c8973853b7a50
+1	479	0	src/CMakeFiles/my_library.dir/sample.cpp.o	efa74b0212e798de
+479	804	0	C:/Users/nitin/Documents/Projects/flutter_ffi/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libmy_library.so	b58c8973853b7a50
