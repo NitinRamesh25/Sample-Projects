@@ -1,0 +1,14 @@
+{
+  "name": "cucumber-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node node_modules/@cucumber/cucumber/bin/cucumber-js"
+  },
+  "author": "Nitin Ramesh",
+  "license": "MIT",
+  "dependencies": {
+    "@cucumber/cucumber": "^7.0.0-rc.0"
+  }
+}
