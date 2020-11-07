@@ -1,1 +1,0 @@
-C:\Users\nitin\Documents\Projects\Sample-Projects\Rust\minigrep\target\debug\minigrep.exe: C:\Users\nitin\Documents\Projects\Sample-Projects\Rust\minigrep\src\lib.rs C:\Users\nitin\Documents\Projects\Sample-Projects\Rust\minigrep\src\main.rs
