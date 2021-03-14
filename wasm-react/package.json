@@ -1,0 +1,23 @@
+{
+  "name": "wasm-react",
+  "version": "1.0.0",
+  "main": "src/index.jsx",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "parcel-bundler": "1.12.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "scripts": {
+    "start": "parcel static/index.html"
+  },
+  "alias": {
+    "app": "./src"
+  },
+  "dependencies": {
+    "temp": "^0.9.4"
+  }
+}
