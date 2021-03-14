@@ -12,12 +12,7 @@
     "react-dom": "^17.0.1"
   },
   "scripts": {
-    "start": "parcel static/index.html"
-  },
-  "alias": {
-    "app": "./src"
-  },
-  "dependencies": {
-    "temp": "^0.9.4"
+    "start": "parcel static/index.html",
+    "build": "parcel build static/index.html"
   }
 }
