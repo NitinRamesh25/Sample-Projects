@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-import Navbar from "./components/Navbar";
-import Custom from "./components/Custom";
-import "./custom.css";
+import { say_hello } from "./hello-world/pkg/hello_world";
+
 class App extends Component {
   render() {
-    return (
-      <div>
-        <Navbar />
-        <Custom />
-      </div>
-    );
+    return <div>{say_hello()}</div>;
   }
 }
 export default App;

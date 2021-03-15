@@ -4,8 +4,8 @@
   "description": "Electron app build using ReactJS and Parcel web application bundler",
   "main": "src/electron.js",
   "scripts": {
-    "react-start": "parcel -p 3000 index.html --out-dir build",
-    "react-build": "parcel build index.html --out-dir build --public-url ./",
+    "react-start": "parcel -p 3000 ./static/index.html --out-dir build",
+    "react-build": "parcel build ./static/index.html --out-dir build --public-url ./",
     "electron-build": "electron-builder -mwl",
     "clean-build": "rm -rf build/ .cache dist/",
     "build": "yarn clean-build && yarn react-build && yarn electron-build",
