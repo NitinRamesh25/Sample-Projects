@@ -1,8 +1,0 @@
-Executable : C:\Users\nitin\AppData\Local\Android\sdk\cmake\3.6.4111459\bin\cmake.exe
-arguments : 
---build
-C:\Users\nitin\Documents\Projects\flutter_ffi\android\app\.cxx\cmake\debug\x86_64
---target
-my_library
-jvmArgs : 
-

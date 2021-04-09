@@ -1,2 +1,0 @@
-[1/2] Building CXX object src/CMakeFiles/my_library.dir/sample.cpp.o
-[2/2] Linking CXX shared library C:\Users\nitin\Documents\Projects\flutter_ffi\build\app\intermediates\cmake\debug\obj\x86\libmy_library.so

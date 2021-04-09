@@ -1,5 +1,0 @@
-C:/Users/nitin/Documents/Projects/flutter_ffi/android/app/.cxx/cmake/debug/armeabi-v7a/CMakeFiles/edit_cache.dir
-C:/Users/nitin/Documents/Projects/flutter_ffi/android/app/.cxx/cmake/debug/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-C:/Users/nitin/Documents/Projects/flutter_ffi/android/app/.cxx/cmake/debug/armeabi-v7a/src/CMakeFiles/my_library.dir
-C:/Users/nitin/Documents/Projects/flutter_ffi/android/app/.cxx/cmake/debug/armeabi-v7a/src/CMakeFiles/edit_cache.dir
-C:/Users/nitin/Documents/Projects/flutter_ffi/android/app/.cxx/cmake/debug/armeabi-v7a/src/CMakeFiles/rebuild_cache.dir
