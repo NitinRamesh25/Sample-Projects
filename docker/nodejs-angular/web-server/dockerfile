@@ -1,6 +1,5 @@
 FROM node:14-alpine
 
-RUN mkdir -p /app/web-server
 WORKDIR /app/web-server
 
 COPY ./ ./

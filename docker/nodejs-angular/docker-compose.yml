@@ -6,8 +6,6 @@ services:
         container_name: ui
         build: 
             context: ./ui
-        volumes:
-            - ./ui:/app/ui # only for development
         restart: on-failure
 
     web-server:
@@ -15,8 +13,8 @@ services:
         container_name: web-server
         build: 
             context: ./web-server
-        volumes:
-            - ./web-server:/app/web-server # only for development
+        # volumes:
+        #     - ./web-server:/app/web-server # only for development
         restart: on-failure
 
     reverse-proxy:

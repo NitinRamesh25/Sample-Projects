@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker-compose build
+docker-compose build --no-cache --force-rm --compress --parallel
 docker-compose up
