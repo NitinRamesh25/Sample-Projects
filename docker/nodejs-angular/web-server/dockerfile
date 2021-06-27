@@ -1,0 +1,13 @@
+FROM node:14-alpine
+
+RUN mkdir -p /app/web-server
+WORKDIR /app/web-server
+
+COPY *.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 8000
+CMD ["npm", "run", "start-dev"] #Only use for development
+# CMD ["npm", "start"] #Start server for production

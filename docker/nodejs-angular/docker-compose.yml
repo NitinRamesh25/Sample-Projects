@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+    web-server:
+        image: web-server
+        container_name: web-server
+        build: 
+            context: ./web-server
+        ports:
+            - 8000:8000
+        volumes:
+            - ./web-server:/app/web-server # only for development
+        restart: on-failure
+
+    reverse-proxy:
+        image: reverse-proxy
+        container_name: reverse-proxy
+        build:
+            context: ./reverse-proxy
+        ports:
+            - 80:80
+        restart: always
+        depends_on:
+            - web-server
+
+networks:
+    app-network:
+        driver: bridge
