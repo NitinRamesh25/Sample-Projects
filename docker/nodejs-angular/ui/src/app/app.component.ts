@@ -10,7 +10,7 @@ export class AppComponent {
   public eventList: string[] = [];
 
   constructor(private http: HttpClient) {
-    this.http.get<any>('http://localhost:8000/event').subscribe(
+    this.http.get<any>('http://localhost/event').subscribe(
       (response) => {
         console.log(`got reponse: ${response}`);
         this.eventList = response;
