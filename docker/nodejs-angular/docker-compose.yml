@@ -17,6 +17,15 @@ services:
         #     - ./web-server:/app/web-server # only for development
         restart: on-failure
 
+    auth-service:
+        image: auth-service
+        container_name: auth-service
+        build: 
+            context: ./auth-service
+        # volumes:
+        #     - ./auth-service:/app/auth-service # only for development
+        restart: on-failure
+
     reverse-proxy:
         image: reverse-proxy
         container_name: reverse-proxy
@@ -28,6 +37,7 @@ services:
         depends_on:
             - ui
             - web-server
+            - auth-service
 
 networks:
     app-network:
