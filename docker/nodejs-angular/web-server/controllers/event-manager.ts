@@ -11,7 +11,7 @@ router.get("/", (_, response) => {
 
 router.get("/auth", (_, response) => {
   axios
-    .get("http://localhost:8001/")
+    .get("http://auth-service:8001/")
     .then((res) => {
       response.send(res.data);
     })
