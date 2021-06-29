@@ -4,9 +4,15 @@ WORKDIR /app/ui
 
 COPY ./ ./
 RUN npm install
+
+# Run a development build
+# CMD [ "npm", "start" ]
+
+# Create a production build
 RUN npm run build
 
 
+# Serving static files in production
 FROM nginx:1.21.0-alpine
 
 RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf

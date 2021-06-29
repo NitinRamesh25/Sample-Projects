@@ -5,5 +5,5 @@ WORKDIR /app/auth-service
 COPY ./ ./
 RUN npm install
 
-# CMD ["npm", "run", "start-dev"] #Start server in development mode
-CMD ["npm", "start"] #Start server for production
+CMD ["npm", "run", "start-dev"] #Start server in development mode
+# CMD ["npm", "start"] #Start server for production

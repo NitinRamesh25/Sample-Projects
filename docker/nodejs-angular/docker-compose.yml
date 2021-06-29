@@ -6,6 +6,10 @@ services:
         container_name: ui
         build: 
             context: ./ui
+        networks: 
+            - mynetwork    
+        # volumes:
+        #     - ./ui:/app/ui # only for development
         restart: on-failure
 
     web-server:
@@ -13,8 +17,10 @@ services:
         container_name: web-server
         build: 
             context: ./web-server
-        # volumes:
-        #     - ./web-server:/app/web-server # only for development
+        networks: 
+            - mynetwork
+        volumes:
+            - ./web-server:/app/web-server # only for development
         restart: on-failure
 
     auth-service:
@@ -22,8 +28,10 @@ services:
         container_name: auth-service
         build: 
             context: ./auth-service
-        # volumes:
-        #     - ./auth-service:/app/auth-service # only for development
+        networks: 
+            - mynetwork
+        volumes:
+            - ./auth-service:/app/auth-service # only for development
         restart: on-failure
 
     reverse-proxy:
@@ -33,6 +41,8 @@ services:
             context: ./reverse-proxy
         ports:
             - 80:80
+        networks: 
+            - mynetwork
         restart: always
         depends_on:
             - ui
@@ -40,5 +50,5 @@ services:
             - auth-service
 
 networks:
-    app-network:
+    mynetwork:
         driver: bridge

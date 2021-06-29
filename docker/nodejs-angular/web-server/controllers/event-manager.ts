@@ -1,5 +1,5 @@
 import express from "express";
-import http from "http";
+import axios from "axios";
 
 const events = ["Comicon", "Concert"];
 
@@ -10,15 +10,15 @@ router.get("/", (_, response) => {
 });
 
 router.get("/auth", (_, response) => {
-  http.get("http://localhost:8001/", (res) => {
-    res.on("data", (data) => {
-      if (data) {
-        response.send("authenticated");
-      } else {
-        response.send("not-authenticated");
-      }
+  axios
+    .get("http://localhost:8001/")
+    .then((res) => {
+      response.send(res.data);
+    })
+    .catch((error) => {
+      console.log(error);
+      response.send(false);
     });
-  });
 });
 
 export { router as EventController };
