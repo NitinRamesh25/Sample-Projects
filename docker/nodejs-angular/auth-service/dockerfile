@@ -1,9 +1,41 @@
-FROM node:14-alpine
+#########################
+# For development
+#########################
+
+# FROM node:14.17.1-alpine3.11
+
+# WORKDIR /app/auth-service
+
+# COPY ./ ./
+# RUN npm install
+
+# CMD ["npm", "run", "start-dev"] #Start server in development mode
+
+#########################
+# For Production
+#########################
+
+FROM alpine:3.14 as transpilation
 
 WORKDIR /app/auth-service
 
+RUN apk add --update npm
+
 COPY ./ ./
 RUN npm install
+RUN npm run ts-build
 
-CMD ["npm", "run", "start-dev"] #Start server in development mode
-# CMD ["npm", "start"] #Start server for production
+
+FROM alpine:3.14
+
+WORKDIR /app/auth-service
+
+RUN apk add --update nodejs=14.17.1-r0 npm
+
+COPY package*.json ./
+RUN npm install --production
+
+RUN mkdir -p dist
+COPY --from=transpilation /app/auth-service/dist dist
+
+CMD ["node", "dist/server.js"]

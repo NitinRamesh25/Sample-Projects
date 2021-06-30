@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "tsc && node dist/server.js",
+    "start": "node dist/server.js",
+    "ts-build": "tsc",
     "start-dev": "concurrently \"tsc -w\" \"nodemon dist/server.js\""
   },
   "keywords": [],

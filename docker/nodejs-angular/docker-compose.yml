@@ -19,8 +19,8 @@ services:
             context: ./web-server
         networks: 
             - mynetwork
-        volumes:
-            - ./web-server:/app/web-server # only for development
+        # volumes:
+        #     - ./web-server:/app/web-server # only for development
         restart: on-failure
 
     auth-service:
@@ -30,8 +30,8 @@ services:
             context: ./auth-service
         networks: 
             - mynetwork
-        volumes:
-            - ./auth-service:/app/auth-service # only for development
+        # volumes:
+        #     - ./auth-service:/app/auth-service # only for development
         restart: on-failure
 
     reverse-proxy:
